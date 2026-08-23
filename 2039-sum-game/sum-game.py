@@ -20,7 +20,6 @@ class Solution:
             else:
                 right_sum += int(num[i])
         
-        diff = left_sum - right_sum
-        q_diff= left_q - right_q
+        
 
         return 2*(left_sum - right_sum)!=9*(right_q-left_q) 
