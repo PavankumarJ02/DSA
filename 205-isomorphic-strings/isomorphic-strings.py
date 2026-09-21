@@ -1,17 +1,21 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        map_s ={}
-        map_t ={}
+
+        s_pattern = []
+        t_pattern = []
+
+        s_seen = {}
+        t_seen = {}
 
         for i in range(len(s)):
-            a = s[i]
-            b = t[i]
 
-            if a in map_s and map_s[a] != b:
-                return False
-            if b in map_t and map_t[b] != a:
-                return False
+            if s[i] not in s_seen:
+                s_seen[s[i]] = len(s_seen)
 
-            map_s[a] = b
-            map_t[b] = a
-        return True
+            if t[i] not in t_seen:
+                t_seen[t[i]] = len(t_seen)
+
+            s_pattern.append(s_seen[s[i]])
+            t_pattern.append(t_seen[t[i]])
+
+        return s_pattern == t_pattern
