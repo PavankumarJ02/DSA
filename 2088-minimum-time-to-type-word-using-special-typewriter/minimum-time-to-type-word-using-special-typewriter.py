@@ -1,9 +1,19 @@
 class Solution:
     def minTimeToType(self, word: str) -> int:
-        cu='a'
-        t=0
-        for c in word:
-            diff=abs(ord(c)-ord(cu))
-            t+=min(diff,26-diff)+1
-            cu=c
-        return t
+
+        current = 0
+        total = 0
+
+        for char in word:
+
+            target = ord(char) - ord('a')
+
+            distance = abs(current - target)
+
+            distance = min(distance, 26 - distance)
+
+            total += distance + 1
+
+            current = target
+
+        return total
