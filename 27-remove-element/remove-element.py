@@ -6,6 +6,7 @@ class Solution:
         for number in nums:
             if number != val:
                 ans.append(number)
+        
 
         for i in range(len(ans)):
             nums[i] = ans[i]
